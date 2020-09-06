@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Banner from 'components/ui/Banner';
+import Bannerv2 from 'components/ui/Bannerv2';
 
-const HeroBanner = () => {
+const MainPage = () => {
   const { markdownRemark } = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: { category: { eq: "hero section" } }) {
@@ -12,32 +12,26 @@ const HeroBanner = () => {
           title
           subtitle
           content
-          linkTo
-          linkText
         }
       }
     }
   `);
 
-  const heroBanner = markdownRemark.frontmatter;
+  const mainPage = markdownRemark.frontmatter;
 
   return (
-    <Banner
-      title={heroBanner.title}
-      subtitle={heroBanner.subtitle}
-      content={heroBanner.content}
-      linkTo={heroBanner.linkTo}
-      linkText={heroBanner.linkText}
+    <Bannerv2
+      title={mainPage.title}
+      subtitle={mainPage.subtitle}
+      content={mainPage.content}
     />
   );
 };
 
-HeroBanner.propTypes = {
+MainPage.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  linkTo: PropTypes.string.isRequired,
-  linkText: PropTypes.string.isRequired
 };
 
-export default HeroBanner;
+export default MainPage;

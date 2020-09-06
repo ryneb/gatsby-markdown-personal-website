@@ -8,10 +8,6 @@ import * as Styled from './styles';
 
 const Header = ({ siteTitle }) => (
   <Styled.Header>
-    <Styled.Wrapper>
-      <Logo />
-      <MainNav />
-    </Styled.Wrapper>
   </Styled.Header>
 );
 
